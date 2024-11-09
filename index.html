@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invitación Especial</title>
+    <style>
+        /* Oculta el botón de reproducción si el video se reproduce automáticamente */
+        #playButton { display: none; }
+    </style>
+</head>
+<body>
+    <h1>¡Bienvenido!</h1>
+    <p>Nos alegra que estés aquí. Disfruta del video de invitación.</p>
+    
+    <!-- Video con autoplay y opción de controles -->
+    <video id="video" autoplay loop controls>
+        <source src="zdios_bendiga_nuestro_amor.mp4" type="video/mp4">
+        Tu navegador no soporta la reproducción de video.
+    </video>
+
+    <!-- Botón de reproducción manual en caso de que autoplay con sonido falle -->
+    <button id="playButton" onclick="playVideo()">Reproducir Video</button>
+
+    <script>
+        const video = document.getElementById('video');
+        const playButton = document.getElementById('playButton');
+
+        // Intenta reproducir el video automáticamente con sonido
+        video.play().catch(error => {
+            // Si falla, muestra el botón de reproducción
+            playButton.style.display = 'block';
+        });
+
+        function playVideo() {
+            video.play();
+            playButton.style.display = 'none';
+        }
+    </script>
+</body>
+</html>
